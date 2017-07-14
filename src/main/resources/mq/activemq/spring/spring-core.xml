@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amq="http://activemq.apache.org/schema/core"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+        http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+        http://activemq.apache.org/schema/core  http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+	<!-- 配置连接工厂 -->
+	<amq:connectionFactory id="activeConnectionFactory" 
+		brokerURL="tcp://192.168.1.104:61616" userName="admin" password="admin" />
+		
+	<bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+		<constructor-arg ref="activeConnectionFactory" />
+		<property name="sessionCacheSize" value="100" />
+	</bean>
+
+	<!-- 配置目的地 -->
+	<bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="FirstQueue" />
+	</bean>
+
+	<!-- 配置JmsTemplate -->
+	<bean id="JmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestination" ref="queueDestination" />
+		<property name="receiveTimeout" value="10000" />
+		<!-- true是topic，false是queue，默认是false，此处显示写出false -->
+		<property name="pubSubDomain" value="false" />
+	</bean>
+
+	<bean id="demoMessageListener" class="cn.quyf.mq.activemq.spring.DemoMessageListener" />
+
+	<bean
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="queueDestination" />
+		<property name="messageListener" ref="demoMessageListener" />
+	</bean>
+</beans>

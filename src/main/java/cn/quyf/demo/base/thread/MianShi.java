@@ -5,8 +5,8 @@ public class MianShi implements Runnable{
 	public MianShi(String name){
 		Thread.currentThread().setName(name);
 	}
-	public static Integer i = 0;
-	public static synchronized void inc(){
+	public Integer i = 0;
+	public void inc(){
 		i++;
 		System.out.println(Thread.currentThread().getName()+"=="+ i );
 		try {
@@ -16,7 +16,7 @@ public class MianShi implements Runnable{
 		}
 	}
 	public void run() {
-		for(int i=0;i<50;i++){
+		for(int i=0;i<100;i++){
 			inc();
 		}
 	}

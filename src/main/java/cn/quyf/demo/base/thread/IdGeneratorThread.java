@@ -1,5 +1,10 @@
 package cn.quyf.demo.base.thread;
 
+/**
+ * 有线程安全问题
+ * @author Administrator
+ *
+ */
 public class IdGeneratorThread {
 
 	public int value = 0;

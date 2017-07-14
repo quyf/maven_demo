@@ -28,7 +28,7 @@ public class HeartBeatServerHandler extends ChannelHandlerAdapter {
 	
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		System.out.println("server channel read....");
+		System.out.println("server channel read...."+Thread.currentThread().getName());
 		System.out.println( ctx.channel().remoteAddress()+"->server:"+ msg.toString());
 	}
 	

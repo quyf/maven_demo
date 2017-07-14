@@ -1,6 +1,9 @@
 package cn.quyf.demo.netty.heartbeat.server;
 
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -14,6 +17,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.timeout.IdleStateHandler;
+import io.netty.util.concurrent.EventExecutorGroup;
 
 /**
  * http://blog.csdn.net/linuu/article/details/51404264
@@ -22,9 +26,34 @@ import io.netty.handler.timeout.IdleStateHandler;
  */
 public class HeartBeatServer {
 
+	public static int processors = Runtime.getRuntime().availableProcessors();//4
+	
 	public void start(int port){
-		EventLoopGroup boss = new NioEventLoopGroup();
-		EventLoopGroup worker = new NioEventLoopGroup();
+		ThreadFactory serverTF = new ThreadFactory(){
+			private AtomicInteger threadIndex = new AtomicInteger(1);
+			
+			public Thread newThread(Runnable r) {
+				return new Thread(r, "NettyBoss_"+threadIndex.getAndIncrement()) ;
+			}
+		};
+		ThreadFactory workerTf = new ThreadFactory() {
+			private AtomicInteger threadIndex = new AtomicInteger(0);
+
+			public Thread newThread(Runnable r) {
+				return new Thread( r, "NettyWorker_"+threadIndex.incrementAndGet());
+			}
+		};
+		EventLoopGroup boss = new NioEventLoopGroup( processors,serverTF);
+		EventLoopGroup worker = new NioEventLoopGroup(processors * 2,workerTf);
+		
+		EventExecutorGroup group = new NioEventLoopGroup(2,new ThreadFactory() {
+            private AtomicInteger threadIndex = new AtomicInteger(0);
+
+            @Override
+            public Thread newThread(Runnable r) {
+                return new Thread(r, "NettyServerWorkerThread_" + this.threadIndex.incrementAndGet());
+            }
+        });
 		ServerBootstrap s = new ServerBootstrap();
 		s.group(boss, worker);
 		s.channel( NioServerSocketChannel.class)
@@ -34,11 +63,9 @@ public class HeartBeatServer {
 
 			@Override
 			protected void initChannel(SocketChannel ch) throws Exception {
-				ChannelPipeline pp = ch.pipeline();
-				pp.addLast(new IdleStateHandler(5, 0, 0,TimeUnit.SECONDS));
-				pp.addLast("decoder", new StringDecoder());
-				pp.addLast("encoder",new StringEncoder());
-				pp.addLast(new HeartBeatServerHandler());
+				ChannelPipeline pp = ch.pipeline();//group, 
+				pp.addLast(new IdleStateHandler(5, 0, 0,TimeUnit.SECONDS),
+						new StringEncoder(),new StringDecoder(),new HeartBeatServerHandler());
 			}
 		});
 		
@@ -57,6 +84,7 @@ public class HeartBeatServer {
 	public static void main(String[] args) {
 		HeartBeatServer server = new HeartBeatServer();
 		server.start( 8001 );
+		System.out.println( processors);
 	}
 	
 }
