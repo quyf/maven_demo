@@ -51,6 +51,53 @@
 			<artifactId>spring-test</artifactId>
 			<version>4.1.4.RELEASE</version>
 		</dependency>
+		<dependency>
+		<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.29</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.9</version>
+		</dependency>
+		<!-- commons-configuration 自动加载的是2.1的版本，编译时会报错，所以再加上这个 -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>18.0</version>
+		</dependency>
+		<!-- proxy -->
+		<!-- <dependency> <groupId>asm</groupId> <artifactId>asm</artifactId> <version>3.0</version> 
+			</dependency> -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+		<!-- canal -->
+		<dependency>
+			<groupId>com.alibaba.otter</groupId>
+			<artifactId>canal.client</artifactId>
+			<version>1.0.12</version>
+		</dependency>
 	</dependencies>
 	
 	<!-- 打包插件 -->
@@ -98,4 +145,5 @@
 			</plugin>
 		</plugins>
 	</build>
+			
 </project>
