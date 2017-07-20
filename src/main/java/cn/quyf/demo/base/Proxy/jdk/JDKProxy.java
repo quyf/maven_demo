@@ -12,7 +12,9 @@ public class JDKProxy implements InvocationHandler {
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(), 
 				target.getClass().getInterfaces(), this);//返回代理对象
 	}
-	
+	/**
+	 * proxy  代理的真实对象
+	 */
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		System.out.println("invoke");
