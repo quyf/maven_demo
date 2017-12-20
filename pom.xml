@@ -62,6 +62,7 @@
 			<artifactId>spring-test</artifactId>
 			<version>4.1.4.RELEASE</version>
 		</dependency>
+		<!-- es -->
 		<dependency>
 		<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>
@@ -109,6 +110,25 @@
 			<artifactId>canal.client</artifactId>
 			<version>1.0.12</version>
 		</dependency>
+		
+		<!-- kafka -->
+		<dependency>
+		    <groupId>org.apache.kafka</groupId>
+		    <artifactId>kafka_2.11</artifactId>
+		    <version>1.0.0</version>
+		</dependency>
+		<dependency>
+	   	 <groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.11</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		 <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+		
+		<!--  -->
 	</dependencies>
 	
 	<!-- 打包插件 -->
