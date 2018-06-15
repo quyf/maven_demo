@@ -28,17 +28,17 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-	<!-- simple spring mvc -->
-	<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
-		<version>2.5</version> <scope>provided</scope> </dependency> -->
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>javax.servlet-api</artifactId>
-		<version>3.1.0</version>
-		<scope>provided</scope>
-	</dependency>
-    
-    
+		<!-- simple spring mvc -->
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
+			<version>2.5</version> <scope>provided</scope> </dependency> -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
@@ -64,7 +64,7 @@
 		</dependency>
 		<!-- es -->
 		<dependency>
-		<groupId>org.elasticsearch</groupId>
+			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>
 			<version>2.2.0</version>
 		</dependency>
@@ -110,27 +110,36 @@
 			<artifactId>canal.client</artifactId>
 			<version>1.0.12</version>
 		</dependency>
-		
+
 		<!-- kafka -->
 		<dependency>
-		    <groupId>org.apache.kafka</groupId>
-		    <artifactId>kafka_2.11</artifactId>
-		    <version>1.0.0</version>
-		</dependency>
-		<dependency>
-	   	 <groupId>org.apache.kafka</groupId>
+			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka_2.11</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-		 <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-		
-		<!--  -->
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.11</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.15</version>
+		</dependency>
+		<!--mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.6</version>
+		</dependency>
 	</dependencies>
-	
+
 	<!-- 打包插件 -->
 	<build>
 		<plugins>
@@ -176,5 +185,5 @@
 			</plugin>
 		</plugins>
 	</build>
-			
+
 </project>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.quyf.mybatis.areasupport.mapper.AreaMapper">
+  <select id="selectById" resultType="cn.quyf.mybatis.areasupport.entity.AreaBean">
+    select * from area where id = #{id}
+  </select>
+</mapper>
