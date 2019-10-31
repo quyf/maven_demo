@@ -20,12 +20,10 @@ public class DiamondServerHandler extends ChannelHandlerAdapter{
     
 	public static Map<String, ChannelHandlerContext> channels = new HashMap<String, ChannelHandlerContext>();
 	
-	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		log.info("channel:"+ctx.channel().remoteAddress()+" 连接到服务器（channelRead）");
 	}
 	
-	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		String request = (String)msg;
 		System.out.println("channelread==" + request);
@@ -48,37 +46,31 @@ public class DiamondServerHandler extends ChannelHandlerAdapter{
 		ctx.writeAndFlush(buf);
 	}
 	
-	@Override
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 		ctx.flush();
 		log.info("channelReadComplete。。");
 	}
-	
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 		ctx.close();
 	}
 
-	@Override
 	public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
 		String ip = ctx.channel().remoteAddress().toString();
 		log.info("ip="+ip+";;channelRegistered");
 	}
 
 
-	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 		String ip = ctx.channel().remoteAddress().toString();
 		log.info("ip="+ip+";;channelInactive");
 	}
 
-	@Override
 	public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
 		String ip = ctx.channel().remoteAddress().toString();
 		log.info("ip="+ip+";;userEventTriggered");
 	}
 
-	@Override
 	public void connect(ChannelHandlerContext ctx, SocketAddress remoteAddress, SocketAddress localAddress,
 			ChannelPromise promise) throws Exception {
 		String ip = ctx.channel().remoteAddress().toString();
@@ -86,9 +78,7 @@ public class DiamondServerHandler extends ChannelHandlerAdapter{
 		log.info("ip="+ip+";;connect,,remote="+remoteAddress.toString());
 	}
 
-	@Override
 	public void close(ChannelHandlerContext ctx, ChannelPromise promise) throws Exception {
-		super.close(ctx, promise);
 		
 	}
 

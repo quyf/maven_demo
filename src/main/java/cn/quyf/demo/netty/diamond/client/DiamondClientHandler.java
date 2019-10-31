@@ -8,22 +8,19 @@ import io.netty.channel.ChannelHandlerContext;
 
 public class DiamondClientHandler extends ChannelHandlerAdapter {
 
+    
 	private final LinkedBlockingQueue<String> queue;
 	 
 	public DiamondClientHandler() {
 		queue = new LinkedBlockingQueue<String>();
 	}
-	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		queue.add((String)msg);
 	}
 
-	@Override
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-		super.channelReadComplete(ctx);
 	}
 
-	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 		// TODO Auto-generated method stub
 		super.exceptionCaught(ctx, cause);

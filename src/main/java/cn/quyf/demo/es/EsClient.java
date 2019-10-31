@@ -1,11 +1,5 @@
 package cn.quyf.demo.es;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.concurrent.ExecutionException;
-
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetRequestBuilder;
 import org.elasticsearch.action.get.GetResponse;
@@ -17,20 +11,29 @@ import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.transport.client.PreBuiltTransportClient;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.util.Date;
+import java.util.HashMap;
 
 public class EsClient {
 	public static void main(String[] args) throws Exception {
 		EsClient cc = new EsClient();
-		Settings settings = Settings.settingsBuilder().put("cluster.name","").build();
-		
-		Client client = TransportClient.builder().settings(settings).build()
-				.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("localhost"), 9300));
+		Settings settings = Settings.builder().put("cluster.name","").build();
+
+        TransportClient  client = new PreBuiltTransportClient(settings);
+		client.addTransportAddress(new TransportAddress(InetAddress.getByName("localhost"), 9300));
+		//不同版本写法不一样
+//                TransportClient.builder().settings(settings).build()
+//				.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("localhost"), 9300));
 		//创建索引
 		cc.createIndex(client);
 		//检索

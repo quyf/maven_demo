@@ -39,7 +39,7 @@ public class EsUtil {
 		SearchResponse resp = searchRequestBuilder.execute().actionGet();
 		SearchHits searchHits = resp.getHits();
 		System.out.println("总数："+searchHits.getTotalHits());  
-		SearchHit[] hits = searchHits.hits();
+		SearchHit[] hits = searchHits.getHits();
 		for(SearchHit hit : hits){
 			String j = hit.getSourceAsString();//fetchsource=true可以这样获取，false的话只能拿到id
 			System.out.println(j);

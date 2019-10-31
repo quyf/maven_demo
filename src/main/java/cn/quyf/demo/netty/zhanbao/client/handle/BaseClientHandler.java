@@ -36,13 +36,11 @@ public class BaseClientHandler extends ChannelHandlerAdapter {
 		ctx.writeAndFlush(buf);
 	}
 
-	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		String buf = (String) msg;  
         System.out.println("Now is : " + buf + " ; the counter is : "+ ++counter);  
 	}
 
-	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 		 ctx.close();  
 	}

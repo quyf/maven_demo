@@ -1,0 +1,169 @@
+警告: 二进制文件SynchronizedCompileQuestion包含cn.quyf.demo.base.lock.SynchronizedCompileQuestion
+Classfile /I:/gitproject/maven_demo/target/classes/cn/quyf/demo/base/lock/SynchronizedCompileQuestion.class
+  Last modified 2019-7-9; size 1117 bytes
+  MD5 checksum 232f796c97ed78f91f118af1cff2a9bd
+  Compiled from "SynchronizedCompileQuestion.java"
+public class cn.quyf.demo.base.lock.SynchronizedCompileQuestion
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #11.#32        // java/lang/Object."<init>":()V
+   #2 = Class              #33            // cn/quyf/demo/base/lock/SynchronizedCompileQuestion
+   #3 = String             #34            // world
+   #4 = Fieldref           #35.#36        // java/lang/System.out:Ljava/io/PrintStream;
+   #5 = Class              #37            // java/lang/StringBuilder
+   #6 = Methodref          #5.#32         // java/lang/StringBuilder."<init>":()V
+   #7 = String             #38            // hello,
+   #8 = Methodref          #5.#39         // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #9 = Methodref          #5.#40         // java/lang/StringBuilder.toString:()Ljava/lang/String;
+  #10 = Methodref          #41.#42        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #11 = Class              #43            // java/lang/Object
+  #12 = Utf8               <init>
+  #13 = Utf8               ()V
+  #14 = Utf8               Code
+  #15 = Utf8               LineNumberTable
+  #16 = Utf8               LocalVariableTable
+  #17 = Utf8               this
+  #18 = Utf8               Lcn/quyf/demo/base/lock/SynchronizedCompileQuestion;
+  #19 = Utf8               main
+  #20 = Utf8               ([Ljava/lang/String;)V
+  #21 = Utf8               args
+  #22 = Utf8               [Ljava/lang/String;
+  #23 = Utf8               testLockClass
+  #24 = Utf8               name
+  #25 = Utf8               Ljava/lang/String;
+  #26 = Utf8               StackMapTable
+  #27 = Class              #43            // java/lang/Object
+  #28 = Class              #44            // java/lang/Throwable
+  #29 = Utf8               testSync
+  #30 = Utf8               SourceFile
+  #31 = Utf8               SynchronizedCompileQuestion.java
+  #32 = NameAndType        #12:#13        // "<init>":()V
+  #33 = Utf8               cn/quyf/demo/base/lock/SynchronizedCompileQuestion
+  #34 = Utf8               world
+  #35 = Class              #45            // java/lang/System
+  #36 = NameAndType        #46:#47        // out:Ljava/io/PrintStream;
+  #37 = Utf8               java/lang/StringBuilder
+  #38 = Utf8               hello,
+  #39 = NameAndType        #48:#49        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #40 = NameAndType        #50:#51        // toString:()Ljava/lang/String;
+  #41 = Class              #52            // java/io/PrintStream
+  #42 = NameAndType        #53:#54        // println:(Ljava/lang/String;)V
+  #43 = Utf8               java/lang/Object
+  #44 = Utf8               java/lang/Throwable
+  #45 = Utf8               java/lang/System
+  #46 = Utf8               out
+  #47 = Utf8               Ljava/io/PrintStream;
+  #48 = Utf8               append
+  #49 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #50 = Utf8               toString
+  #51 = Utf8               ()Ljava/lang/String;
+  #52 = Utf8               java/io/PrintStream
+  #53 = Utf8               println
+  #54 = Utf8               (Ljava/lang/String;)V
+{
+  public cn.quyf.demo.base.lock.SynchronizedCompileQuestion();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 9: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcn/quyf/demo/base/lock/SynchronizedCompileQuestion;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 13: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       1     0  args   [Ljava/lang/String;
+
+  public static void testLockClass();
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=3, args_size=0
+         0: ldc           #2                  // class cn/quyf/demo/base/lock/SynchronizedCompileQuestion
+         2: dup
+         3: astore_0
+         4: monitorenter
+         5: ldc           #3                  // String world
+         7: astore_1
+         8: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        11: new           #5                  // class java/lang/StringBuilder
+        14: dup
+        15: invokespecial #6                  // Method java/lang/StringBuilder."<init>":()V
+        18: ldc           #7                  // String hello,
+        20: invokevirtual #8                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        23: aload_1
+        24: invokevirtual #8                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        27: invokevirtual #9                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        30: invokevirtual #10                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        33: aload_0
+        34: monitorexit
+        35: goto          43
+        38: astore_2
+        39: aload_0
+        40: monitorexit
+        41: aload_2
+        42: athrow
+        43: return
+      Exception table:
+         from    to  target type
+             5    35    38   any
+            38    41    38   any
+      LineNumberTable:
+        line 16: 0
+        line 17: 5
+        line 18: 8
+        line 19: 33
+        line 20: 43
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            8      25     1  name   Ljava/lang/String;
+      StackMapTable: number_of_entries = 2
+        frame_type = 255 /* full_frame */
+          offset_delta = 38
+          locals = [ class java/lang/Object ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 250 /* chop */
+          offset_delta = 4
+
+  public static synchronized void testSync();
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_SYNCHRONIZED
+    Code:
+      stack=3, locals=1, args_size=0
+         0: ldc           #3                  // String world
+         2: astore_0
+         3: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         6: new           #5                  // class java/lang/StringBuilder
+         9: dup
+        10: invokespecial #6                  // Method java/lang/StringBuilder."<init>":()V
+        13: ldc           #7                  // String hello,
+        15: invokevirtual #8                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        18: aload_0
+        19: invokevirtual #8                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        22: invokevirtual #9                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        25: invokevirtual #10                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        28: return
+      LineNumberTable:
+        line 23: 0
+        line 24: 3
+        line 25: 28
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            3      26     0  name   Ljava/lang/String;
+}
+SourceFile: "SynchronizedCompileQuestion.java"

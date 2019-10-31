@@ -11,7 +11,6 @@ public class ClientHandler extends ChannelHandlerAdapter {
 		this.person = person;
 	}
 	
-	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		ctx.write(person);
 		ctx.flush();
