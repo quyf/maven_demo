@@ -9,7 +9,6 @@ public class HeartBeatServerHandler extends ChannelHandlerAdapter {
 
 	private int loss_connect_time= 0;
 	
-	@Override
 	public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
 		if( evt instanceof IdleStateEvent){
 			IdleStateEvent event = (IdleStateEvent) evt;
@@ -22,11 +21,9 @@ public class HeartBeatServerHandler extends ChannelHandlerAdapter {
 				}
 			}
 		}else{
-			super.userEventTriggered(ctx, evt);
 		}
 	}
 	
-	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		System.out.println("server channel read...."+Thread.currentThread().getName());
 		System.out.println( ctx.channel().remoteAddress()+"->server:"+ msg.toString());

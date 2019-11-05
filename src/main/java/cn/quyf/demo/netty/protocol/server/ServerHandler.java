@@ -6,7 +6,6 @@ import io.netty.channel.ChannelHandlerContext;
 
 public class ServerHandler extends ChannelHandlerAdapter {
 
-	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		Person p = (Person)msg;
 		System.out.println("BusinessHandler read msg from client :" +  p);

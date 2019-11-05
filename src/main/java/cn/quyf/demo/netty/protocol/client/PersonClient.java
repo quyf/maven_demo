@@ -14,7 +14,7 @@ public class PersonClient {
 
 	public static void main(String[] args) {
 		PersonClient client = new PersonClient();
-		client.connect( "localhost",8000 );
+		client.connect( "localhost",8080 );
 	}
 	public void connect(String host,int port){
 		EventLoopGroup worker = new NioEventLoopGroup();

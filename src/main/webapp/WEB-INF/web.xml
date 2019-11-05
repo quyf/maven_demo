@@ -1,0 +1,28 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>DispatcherServlet</servlet-name>
+  	<display-name>DispatcherServlet</display-name>
+  	<description></description>
+  	<servlet-class>cn.quyf.simplespringmvc.servlet.DispatcherServlet</servlet-class>
+  	<!-- 默认的情况下，第一次访问servlet时创建servlet,配置了这个参数可在web应用启动时就加载此servlet并调用init方法 -->
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+   <servlet>
+  	<servlet-name>FirstServlet</servlet-name>
+  	<servlet-class>cn.quyf.simplespringmvc.servlet.FirstServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DispatcherServlet</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FirstServlet</servlet-name>
+  	<url-pattern>/first</url-pattern>
+  </servlet-mapping>
+</web-app>

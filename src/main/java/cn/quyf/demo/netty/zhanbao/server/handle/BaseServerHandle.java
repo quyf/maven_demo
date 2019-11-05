@@ -6,7 +6,6 @@ import io.netty.channel.ChannelHandlerContext;
 public class BaseServerHandle extends ChannelHandlerAdapter {
 	private int counter;  
 	
-	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		String body = (String)msg;
 		System.out.println("server receive order : " + body + ";the counter is: " + ++counter);  

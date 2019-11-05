@@ -8,4 +8,8 @@ public class Test {
 	public Test(){
 		System.out.println(" test construct ...");
 	}
+	
+	public void sayHello(){
+        System.out.println("say hello ");
+    }
 }
