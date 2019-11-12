@@ -3,14 +3,16 @@ package cn.quyf.leetcode.sort;
 import java.util.Arrays;
 
 /**
+ * 二分查找法,在有序数组arr中,查找target,如果找到target,返回相应的索引index, 如果没有找到target,返回-1
  * @author quyf
  * @date 2019/11/5 12:00
  */
 public class DivideSearchDemo {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{60,80,90,50,40,75,32};
-        binarySearch(arr, 0, arr.length, 40);
+        int[] arr = new int[]{32,40,50,60,75,80,90};
+        int rt = binarySearch(arr, 0, arr.length-1, 75);
+        System.out.println(rt);
     }
     /**
      * 二分查找（递归）
@@ -24,9 +26,12 @@ public class DivideSearchDemo {
         if (start > end) {
             return -1;
         }
-        System.out.println(Arrays.toString(arr));
         //防止溢位
-        int mid = start + (end - start)/2;    
+        int mid = start + (end - start)/2;
+        System.out.println(start +"-"+end+",mid="+mid);
+        if (arr[mid] == target) {
+            return mid;
+        }
         if (arr[mid] > target) {
             return binarySearch(arr, start, mid - 1, target);
         }
