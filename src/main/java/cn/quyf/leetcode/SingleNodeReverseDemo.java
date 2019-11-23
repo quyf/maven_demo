@@ -18,7 +18,7 @@ public class SingleNodeReverseDemo {
         System.out.println(node);
 
         Node reverNode = reverseNode(node);
-        //System.out.println(reverNode);
+        System.out.println(reverNode);
     }
 
     private static Node reverseNode(Node node) {
