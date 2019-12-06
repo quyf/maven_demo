@@ -29,4 +29,4 @@
 也可通过命令修改
 > config set maxmemory-policy allkeys-lru
 
-
+[史上最全Redis总结，你想知道的都在这里啦](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650125388&idx=1&sn=cd81120715796291cf2544947622acbf&chksm=f36ba96dc41c207b6be63b653cdc8307bedf87afd7ae31b46dc1e018aabea85cf2d5510285ad&scene=7&key=c80b7c0dade6c18a100436793f3db1a72282e66fd4b3c8b1ead2bc0507c58e345ea22147bf2fd0bfbe5c3aa39735a492c5ce4d525bb267e26cba83e230d3b119652916370e6343e1795b6ee572d21d60&ascene=0&uin=NDAyNDg1OTc1&devicetype=Windows+7&version=62070158&lang=zh_CN&pass_ticket=3DB2vLVFLwhMWsEPuRhAoyn33mITiVIoRycvX%2FsOXjUmdXSWVnAF2v12Aea5%2Fh1m)
