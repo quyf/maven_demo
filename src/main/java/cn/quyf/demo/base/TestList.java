@@ -2,6 +2,7 @@ package cn.quyf.demo.base;
 
 import com.google.common.collect.Lists;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,6 +12,7 @@ import java.util.List;
 public class TestList {
 
     public static void main(String[] args) {
+        System.out.println(Collections.emptyList().size());
         List<Long> list = Lists.newArrayList(1417L,1412L,1491L,1413L,1403L);
         list.add(0, 1421L);
         System.out.println(list);
