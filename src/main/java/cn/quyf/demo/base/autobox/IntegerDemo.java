@@ -15,5 +15,9 @@ public class IntegerDemo {
 		
 		System.out.println( Integer.parseInt("-12"));
 		System.out.println( Integer.parseInt("+12"));
+
+		Integer a = new Integer(1);
+		Integer b = new Integer(1);
+		System.out.println(a==b);
 	}
 }

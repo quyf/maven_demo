@@ -28,7 +28,6 @@ public class TestLambda {
         scopeList.add(new Scope("BUSINESS", "1"));
         scopeList.add(new Scope("BUSINESS", "2"));
         scopeList.add(new Scope("BUSINESS", "3"));
-
         scopeList.add(new Scope("USER_TAG", "3"));
         scopeList.add(new Scope("USER_TAG", "3"));
         scopeList.add(new Scope("USER_TAG", "3"));

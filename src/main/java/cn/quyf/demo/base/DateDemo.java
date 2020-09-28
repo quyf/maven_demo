@@ -21,24 +21,16 @@ import java.util.stream.Collectors;
 public class DateDemo {
 
     public static void main(String[] args) {
-        System.out.println(System.currentTimeMillis());
-        String a = "";
-        List<Integer> collect = Arrays.stream(a.split(",")).map(Integer::parseInt).collect(Collectors.toList());
-        System.out.println(collect);
-
-        String pm = null;
-        String sp = "wxpay";
-        System.out.println(sp.equalsIgnoreCase(pm));
-        if(StringUtils.isEmpty(pm)){
-            System.out.println(sp);
-        }
 
         Date now = new Date();
-        Date beginDate = DateUtils.addDays(now, 3-1);
-        Date endDate = DateUtils.addDays(now, 3);
-        System.out.println(beginDate);
+        now.setMonth(7);
+        now.setDate(20);
 
-        System.out.println(endDate);
+        Date beginDate = DateUtils.addDays(now, 62);
+
+        System.out.println(DateFormatUtils.format(now, "yyyy-MM-dd"));
+
+        System.out.println(DateFormatUtils.format(beginDate, "yyyy-MM-dd"));
     }
 
     public static void testYyFormat(){
